@@ -1,0 +1,11 @@
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  esbuild: false
+  unrs-resolver: false
+minimumReleaseAgeExclude:
+  - glob@14.0.2
+  - minimatch@11.0.1
+overrides:
+    "glob@>=9.0.0 <=14.0.1": "14.0.2"
+    "minimatch@>=7.0.0 <11.0.1": "11.0.1"
