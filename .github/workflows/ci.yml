@@ -1,0 +1,40 @@
+name: ci
+ 
+on:
+  pull_requests:
+  push:
+    branches: [main]
+ 
+permissions:
+  contents: read
+ 
+env:
+  CDK_DISABLE_CLI_TELEMETRY: 'true'
+ 
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+ 
+      - uses: pnpm/action-setup@v6
+ 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+ 
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+ 
+      - name: Check formatting
+        run: pnpm format:check
+ 
+      - name: Type check
+        run: pnpm build
+ 
+      - name: Unit tests
+        run: pnpm test
+ 
+      - name: Synthesize
+        run: pnpm cdk synth aicicd-stg-app --quiet --ci --no-notices

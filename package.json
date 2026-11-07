@@ -1,11 +1,14 @@
 {
   "name": "ai-cidc-sample",
   "version": "0.1.0",
+  "packageManager": "pnpm@11.17.0",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "format": "prettier --write \"{bin,lib,lambda,test}/**/*.ts\"",
+    "format:check": "prettier --check \"{bin,lib,lambda,test}/**/*.ts\""
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.1163.0",
@@ -19,6 +22,7 @@
     "aws-sdk-client-mock": "^4.1.0",
     "esbuild": "^0.28.2",
     "jest": "^30.5.2",
+    "prettier": "^3.9.10",
     "tsx": "^4.23.15",
     "typescript": "~7.0.2"
   },
