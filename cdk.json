@@ -1,5 +1,5 @@
 {
-  "app": "npx tsc && npx tsx bin/ai-cidc-sample.ts",
+  "app": "pnpm exec tsc && pnpm exec tsx bin/ai-cidc-sample.ts",
   "watch": {
     "include": [
       "**"
