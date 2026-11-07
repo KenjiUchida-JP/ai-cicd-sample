@@ -1,5 +1,6 @@
 {
-  "app": "pnpm exec tsc && pnpm exec tsx bin/ai-cidc-sample.ts",
+  "app": "pnpm exec tsc && pnpm exec tsx bin/ai-cicd-sample.ts",
+  "toolkitStackName": "CDKToolkit-aicicd",
   "watch": {
     "include": [
       "**"
@@ -17,6 +18,7 @@
     ]
   },
   "context": {
+    "@aws-cdk/core:bootstrapQualifier": "aicicd",
     "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
     "@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId": true,
     "@aws-cdk/aws-apigateway:disableCloudWatchRole": true,
